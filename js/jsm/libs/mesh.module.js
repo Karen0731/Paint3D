@@ -32,7 +32,7 @@ class Cube extends Mesh {
         super();
 
         this.geometry = new THREE.BoxGeometry();
-        this.material = new THREE.MeshBasicMaterial({color: "white", wireframe: false});
+        this.material = new THREE.MeshBasicMaterial({color: "white", wireframe: false,transparent : true});
     }
 }
 
@@ -41,7 +41,8 @@ class Sphere extends Mesh {
         super();
 
         this.geometry = new THREE.SphereGeometry(1, 5, 5);
-        this.material = new THREE.MeshBasicMaterial({color: "white", wireframe: false});
+        this.material = new THREE.MeshBasicMaterial({color: "white", wireframe: false,transparent : true});
+        
     }
 }
 
@@ -51,7 +52,7 @@ class Cylinder extends Mesh {
         super();
 
         this.geometry = new THREE.CylinderGeometry(.5, .5, 1, 10);
-        this.material = new THREE.MeshBasicMaterial({color: "white", wireframe: false});
+        this.material = new THREE.MeshBasicMaterial({color: "white", wireframe: false,transparent : true});
     }
 }
 
