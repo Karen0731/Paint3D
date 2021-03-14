@@ -14,6 +14,7 @@ var selected;
 
 let gui = new dat.GUI();
 
+let planeMenu = gui.addFolder("Plane Menu")
 let posMenu = gui.addFolder("Position Menu");
 let rotMenu = gui.addFolder("Rotation Menu");
 let appearMenu = gui.addFolder("Appearance Menu");
@@ -165,6 +166,11 @@ function init() {
         selected.position.z = value;
     });
 
+    //Model plane
+    let planeGeometry = new THREE.PlaneGeometry( 5, 5, 32 );
+    let planeMaterial = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
+    let plane = new THREE.Mesh( planeGeometry, planeMaterial );
+    scene.add( plane );
 
     //Rotation Menu
     let sliderRotX = rotMenu.add(model, "rotX").min(-180).max(180).step(5).name("X deg:").listen().onChange(function(value){
@@ -188,6 +194,8 @@ function init() {
         selected.material.color = new THREE.Color(color[0]/256, color[1]/256, color[2]/256);
     });
 
+    //Grid menu
+    let chbGridHelper = planeMenu.add(plane, "visible").setValue(false).name("Show plane");
 
     //GENERAL MENU (All geometries wireframe, background color, etc....)
     let checkBox = {"wireframe":false};
