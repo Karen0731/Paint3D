@@ -252,6 +252,7 @@ function init() {
     let planeMaterial = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
     let plane = new THREE.Mesh( planeGeometry, planeMaterial );
     scene.add( plane );
+    planeMenu.add(plane, "visible").setValue(false).name("Plane");
 
     //Rotation Menu
     let sliderRotX = rotMenu.add(model, "rotX").min(-180).max(180).step(5).name("X deg:").listen().onChange(function(value){
