@@ -253,7 +253,7 @@ function init() {
     let plane = new THREE.Mesh( planeGeometry, planeMaterial );
     scene.add( plane );
     planeMenu.add(plane, "visible").setValue(false).name("Plane");
-
+    plane.position.z = -1;
     //Rotation Menu
     let sliderRotX = rotMenu.add(model, "rotX").min(-180).max(180).step(5).name("X deg:").listen().onChange(function(value){
         selected.rotation.x = value * Math.PI / 180;
