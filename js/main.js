@@ -127,6 +127,22 @@ function init() {
         scene.add(mesh);
     }};
     geometryMenu.add(cilinderButton,'add').name("Cilinder");
+
+    var eButton = { add:function(){ 
+        mesh = new Mesh.Ee();
+        mesh.position.x = Math.random() * 3; 
+        mesh.position.y = Math.random() * 3;
+        scene.add(mesh);
+    }};
+    geometryMenu.add(eButton,'add').name("E");
+
+    var ochoButton = { add:function(){ 
+        mesh = new Mesh.Ocho();
+        mesh.position.x = Math.random() * 3; 
+        mesh.position.y = Math.random() * 3;
+        scene.add(mesh);
+    }};
+    geometryMenu.add(ochoButton,'add').name("8");
     
     //model
     let model =
