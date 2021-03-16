@@ -165,7 +165,9 @@ function init() {
             selected.rotation.z = model.rotZ;
         },
         colorPalette : [1, 1, 1],
-        wireFrame : selected.material.wireframe
+        wireFrame : selected.material.wireframe,
+        showStats : true,
+        opacity : 1
     }
 
 
@@ -210,8 +212,12 @@ function init() {
         selected.material.color = new THREE.Color(color[0]/256, color[1]/256, color[2]/256);
     });
 
-    //Grid menu
-    let chbGridHelper = planeMenu.add(plane, "visible").setValue(false).name("Show plane");
+    
+
+    let opacity = appearMenu.add(model, "opacity").min(0).max(1).step(.1).name("opacity").listen().onChange(function(value){
+        selected.material.opacity = value;
+
+    });
 
     //GENERAL MENU (All geometries wireframe, background color, etc....)
     let checkBox = {"wireframe":false};
@@ -221,7 +227,9 @@ function init() {
             child.material.wireframe = value;
         });
     });
-
+    let showStatsMenu = generalMenu.add(model, "showStats").setValue(true).name("Show Stats").onChange(function(value){
+        stats.dom.style.display = value ? "inline-block" : "none";
+    });
     var backgroundColor = {color: "#000000"};
     var colorObj = new THREE.Color( backgroundColor.color );
 
