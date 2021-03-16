@@ -161,11 +161,105 @@ class Ocho extends Mesh {
 class Cube extends Mesh {
     constructor() {
         super();
+        // Cube
+        let vertices = //front
+            [-0.5, 0.5, 0.5,
+            -0.5, -0.5, 0.5,
+            0.5, -0.5, 0.5,
+            0.5, 0.5, 0.5,
+            //back
+            -0.5, 0.5, -0.5,
+            -0.5, -0.5, -0.5,
+            0.5, -0.5, -0.5,
+            0.5, 0.5, -0.5
+        ];
+        let indices = [0,1,2, 0,2,3,
+            4,5,6, 4,6,7,
+        0,1,5, 0,5,4,
+        2,3,7, 2,7,6,
+        1,2,6, 1,6,5,
+        3,0,4, 3,4,7
+        ];
 
-        this.geometry = new THREE.BoxGeometry();
-        this.material = new THREE.MeshBasicMaterial({color: "white", wireframe: false});
+        this.geometry = new THREE.BufferGeometry();
+        this.geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        this.geometry.setIndex(indices);
+        this.material = new THREE.MeshBasicMaterial({color: "white", wireframe: false, side: THREE.DoubleSide});
     }
 }
+//pyramid
+class Pyramid extends Mesh {
+    constructor() {
+        super();
+        // Pyramid
+        let vertices = 
+        [0,0.5,0,
+        -0.5,-0.5,0.5,
+        0.5,-0.5,0.5,
+        0,-0.5,-0.5];
+        let indices = [0,1,2, 0,2,3,
+            0,3,1, 3,1,2];
+
+        this.geometry = new THREE.BufferGeometry();
+        this.geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        this.geometry.setIndex(indices);
+        this.material = new THREE.MeshBasicMaterial({color: "white", wireframe: false, side: THREE.DoubleSide});
+    }
+}
+
+//Square pyramid 
+class SquarePyramid  extends Mesh {
+    constructor() {
+        super();
+        // Square pyramid 
+        let vertices = 
+        [0,0.5,0,
+        -0.5,-0.5,0.5,
+        0.5,-0.5,0.5,
+        0.5,-0.5,-0.5,
+        -0.5,-0.5,-0.5,];
+        let indices = [0,1,2, 0,2,3,
+            0,3,4, 0,4,1, 1,2,3, 1,3,4];
+
+        this.geometry = new THREE.BufferGeometry();
+        this.geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        this.geometry.setIndex(indices);
+        this.material = new THREE.MeshBasicMaterial({color: "white", wireframe: false, side: THREE.DoubleSide});
+    }
+}
+
+
+//Ortoedro
+class Orthohedron extends Mesh {
+    constructor() {
+        super();
+        // Orthoedron
+        let vertices = //front
+            [-0.25, 0.5, 0.25,
+            -0.25, -0.5, 0.25,
+            0.25, -0.5, 0.25,
+            0.25, 0.5, 0.25,
+            //back
+            -0.25, 0.5, -0.25,
+            -0.25, -0.5, -0.25,
+            0.25, -0.5, -0.25,
+            0.25, 0.5, -0.25
+        ];
+        let indices = [0,1,2, 0,2,3,
+            4,5,6, 4,6,7,
+        0,1,5, 0,5,4,
+        2,3,7, 2,7,6,
+        1,2,6, 1,6,5,
+        3,0,4, 3,4,7
+        ];
+
+        this.geometry = new THREE.BufferGeometry();
+        this.geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        this.geometry.setIndex(indices);
+        this.material = new THREE.MeshBasicMaterial({color: "white", wireframe: false, side: THREE.DoubleSide});
+    }
+}
+
 
 class Sphere extends Mesh {
     constructor() {
@@ -186,4 +280,138 @@ class Cylinder extends Mesh {
     }
 }
 
-export {Quad, Cube, Sphere, Cylinder, Ee, Ocho};
+//PentagonalPrism
+class PentagonalPrism extends Mesh {
+    constructor() {
+        super();
+        // Pentagonal prism
+        let vertices = 
+        [-1.5, 0.5, 0.5,
+            1,-1,0.5,
+            0,1.5,0.5,
+            -1,-1,0.5,
+            1.5,0.5,0.5,
+            -1.5, 0.5,-0.5,
+            1,-1,-0.5,
+            0,1.5,-0.5,
+            -1,-1,-0.5,
+            1.5,0.5,-0.5];
+
+        let indices = 
+        [0,1,2, 2,3,4, 4,0,1, 0,4,3, 3,2,1,//front
+        5,6,7, 7,8,9, 9,5,6, 5,9,8, 7,6,5,//back
+        0,3,8, 0,8,5,
+        3,1,6, 3,6,8,
+        1,4,9, 1,9,6,
+        4,2,7, 4,7,9,
+        2,0,5, 2,5,7];
+
+        this.geometry = new THREE.BufferGeometry();
+        this.geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        this.geometry.setIndex(indices);
+        this.material = new THREE.MeshBasicMaterial({color: "white", wireframe: false, side: THREE.DoubleSide});
+    }
+}
+
+class Arrow extends Mesh {
+    constructor() {
+        super();
+        // Arrow
+        let vertices = //prism front
+            [-0.15, 0.5, 0.15,
+            -0.15, -0.5, 0.15,
+            0.15, -0.5, 0.15,
+            0.15, 0.5, 0.15,
+            //prism back
+            -0.15, 0.5, -0.15,
+            -0.15, -0.5, -0.15,
+            0.15, -0.5, -0.15,
+            0.15, 0.5, -0.15,
+            //Arrow front
+            -0.5,0.5,0.15,
+            0.5,0.5,0.15,
+            0,0.75,0.15,
+            //Arrow back
+            -0.5,0.5,-0.15,
+            0.5,0.5,-0.15,
+            0,0.75,-0.15
+        ];
+        let indices = [0,1,2, 0,2,3,
+            4,5,6, 4,6,7,
+            0,1,5, 0,5,4,
+            2,3,7, 2,7,6,
+            1,2,6, 1,6,5,
+            3,0,4, 3,4,7,
+            8,9,10,//flecha
+            11,12,13,
+            8,11,13, 8,13,10,
+            9,10,13, 9,13,12
+            ];
+
+        this.geometry = new THREE.BufferGeometry();
+        this.geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        this.geometry.setIndex(indices);
+        this.material = new THREE.MeshBasicMaterial({color: "white", wireframe: false, side: THREE.DoubleSide});
+    }
+}
+
+class TrapezoidalPrism extends Mesh {
+    constructor() {
+        super();
+        let vertices = //front
+            [-0.25, 0.25, 0.5,
+            -0.5, -0.25, 0.5,
+            0.5, -0.25, 0.5,
+            0.25, 0.25, 0.5,
+            //back
+            -0.25, 0.25, -0.5,
+            -0.5, -0.25, -0.5,
+            0.5, -0.25, -0.5,
+            0.25, 0.25, -0.5
+        ];
+        let indices = [0,1,2, 0,2,3,
+            4,5,6, 4,6,7,
+        0,1,5, 0,5,4,
+        2,3,7, 2,7,6,
+        1,2,6, 1,6,5,
+        3,0,4, 3,4,7
+        ];
+
+        this.geometry = new THREE.BufferGeometry();
+        this.geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        this.geometry.setIndex(indices);
+        this.material = new THREE.MeshBasicMaterial({color: "white", wireframe: false, side: THREE.DoubleSide});
+    }
+}
+
+//Romboidal
+class RomboidalPrism extends Mesh {
+    constructor() {
+        super();
+        // Cylinder
+        let vertices = //front
+            [-1, 0.25, 0.5,
+            -0.5, -0.25, 0.5,
+            0.5, -0.25, 0.5,
+            0, 0.25, 0.5,
+            //back
+            -1, 0.25, -0.5,
+            -0.5, -0.25, -0.5,
+            0.5, -0.25, -0.5,
+            0, 0.25, -0.5
+        ];
+        let indices = [0,1,2, 0,2,3,
+            4,5,6, 4,6,7,
+        0,1,5, 0,5,4,
+        2,3,7, 2,7,6,
+        1,2,6, 1,6,5,
+        3,0,4, 3,4,7
+        ];
+        this.geometry = new THREE.BufferGeometry();
+        this.geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        this.geometry.setIndex(indices);
+        this.material = new THREE.MeshBasicMaterial({color: "white", wireframe: false, side: THREE.DoubleSide});
+    }
+}
+
+export {Quad, Cube, Sphere, Cylinder, Ee, Ocho, Pyramid, Orthohedron, PentagonalPrism, Arrow, TrapezoidalPrism, RomboidalPrism, SquarePyramid };

@@ -111,7 +111,7 @@ function init() {
         scene.add(mesh);
     }};
     geometryMenu.add(sphereButton,'add').name("Sphere");
-
+    //Cubo
     var cubeButton = { add:function(){ 
         mesh = new Mesh.Cube();
         mesh.position.x = Math.random() * 3;
@@ -127,7 +127,7 @@ function init() {
         scene.add(mesh);
     }};
     geometryMenu.add(cilinderButton,'add').name("Cilinder");
-
+    //E
     var eButton = { add:function(){ 
         mesh = new Mesh.Ee();
         mesh.position.x = Math.random() * 3; 
@@ -135,7 +135,7 @@ function init() {
         scene.add(mesh);
     }};
     geometryMenu.add(eButton,'add').name("E");
-
+    //Ocho
     var ochoButton = { add:function(){ 
         mesh = new Mesh.Ocho();
         mesh.position.x = Math.random() * 3; 
@@ -143,6 +143,69 @@ function init() {
         scene.add(mesh);
     }};
     geometryMenu.add(ochoButton,'add').name("8");
+
+    //Pyramid
+    var pyramidButton = { add:function(){ 
+        mesh = new Mesh.Pyramid();
+        mesh.position.x = Math.random() * 3; 
+        mesh.position.y = Math.random() * 3;
+        scene.add(mesh);
+    }};
+    geometryMenu.add(pyramidButton,'add').name("Pyramid");
+
+    //Orthohedron 
+    var pyramidButton = { add:function(){ 
+        mesh = new Mesh.Orthohedron ();
+        mesh.position.x = Math.random() * 3; 
+        mesh.position.y = Math.random() * 3;
+        scene.add(mesh);
+    }};
+    geometryMenu.add(pyramidButton,'add').name("Orthohedron");
+
+    //Pentagonal Prism 
+    var pentagonalPrismButton = { add:function(){ 
+        mesh = new Mesh.PentagonalPrism();
+        mesh.position.x = Math.random() * 3; 
+        mesh.position.y = Math.random() * 3;
+        scene.add(mesh);
+    }};
+    geometryMenu.add(pentagonalPrismButton,'add').name("Pentagonal Prism");
+
+    //Arrow
+    var arrowButton = { add:function(){ 
+        mesh = new Mesh.Arrow();
+        mesh.position.x = Math.random() * 3; 
+        mesh.position.y = Math.random() * 3;
+        scene.add(mesh);
+    }};
+    geometryMenu.add(arrowButton,'add').name("Arrow");
+
+    //Trapezoidal prism
+    var trapezoidalPrismButton = { add:function(){ 
+        mesh = new Mesh.TrapezoidalPrism();
+        mesh.position.x = Math.random() * 3; 
+        mesh.position.y = Math.random() * 3;
+        scene.add(mesh);
+    }};
+    geometryMenu.add(trapezoidalPrismButton,'add').name("Trapezoidal prism");
+
+    //Romboidal prism
+    var romboidalPrismButton = { add:function(){ 
+        mesh = new Mesh.RomboidalPrism();
+        mesh.position.x = Math.random() * 3; 
+        mesh.position.y = Math.random() * 3;
+        scene.add(mesh);
+    }};
+    geometryMenu.add(romboidalPrismButton,'add').name("Romboidal prism");
+
+    //Square pyramid
+    var squarePyramidButton = { add:function(){ 
+        mesh = new Mesh.SquarePyramid();
+        mesh.position.x = Math.random() * 3; 
+        mesh.position.y = Math.random() * 3;
+        scene.add(mesh);
+    }};
+    geometryMenu.add(squarePyramidButton,'add').name("Square pyramid")
     
     //model
     let model =
